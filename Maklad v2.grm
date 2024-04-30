@@ -1,0 +1,190 @@
+"Name" = 'Maklad Language'
+"Start Symbol" = <Go>
+"Version"  = '2.0'
+           
+               
+!-------------- Charachter sets -----------------------
+
+{String Ch} = {Printable} - ["]
+
+!-------------- Terminals ------------------------------
+Id = {letter}{Alphanumeric}*
+digit = ('+' | '-' )?{digit} + ('.'{digit}+)? (('e'|('-'|'+')'+')?({digit} +) '^' ('+' | '-' ){digit}+('.'{digit}+)?)?
+!int = {Digit}+
+!float = {Digit}+ '.' {Digit}+
+!str = '"' {String Ch}* '"'  
+com = '@'+{String Ch}*
+
+!------------------------------------------------------------
+!----------------------- Rules ------------------------------
+!------------------------------------------------------------
+
+<Go> ::= <stmt_list>
+     
+<stmt_list> ::= <statement>
+                 |<statement> <stmt_list>
+                 
+<statement> ::= <assign>
+           | <if_stmt>
+           | <for_stmt>
+           | <while_stmt>
+           | <do_while>
+           | <function> 
+           | <return_stmt>
+           | <comment_stmt>
+           | <call_fun>
+           | <dictionary>
+           | <list>
+           | <try_catch> 
+           | <class>
+           | <class_object>
+           | <access_classFunction>
+           | <print>
+
+
+!----------- Comment statment ----------
+<comment_stmt> ::= com
+           
+!------ assignment statment
+<assign> ::= <data_type> Id '=' <expres>
+         
+   
+<data_type> ::= int | float | string
+                
+<expres> ::= <term> '+' <expres>
+           | <term> '-' <expres>
+           | <term>
+        
+           
+<term> ::= <factor> '*' <factor>
+         | <factor> '/' <factor>
+         | <factor> '%' <factor>
+         | <factor>
+         
+<factor> ::= Id 
+           | <digit> 
+           | <digit> '^' <digit>
+           | '(' <expres> ')'
+           
+<digit> ::= digit
+         
+!-------------- For Statment ------------------------------
+
+<for_stmt> ::= for '(' <assign> to <assign> ',' <step> ')' ':' '{' <stmt_list> '}'
+           
+   
+<step> ::= '--'Id
+       | Id '--'
+       |'++'Id
+       |Id '++'
+       | Id '=' Id '+' <digit>
+       | Id '=' Id '-' <digit>
+       | Id '+=' <digit>
+       | Id '-=' <digit>
+       | Id '=' Id '+*' <digit>
+       | Id '=' Id '/' <digit>
+       | Id '*=' <digit>
+       | Id '/=' <digit>
+       
+!-------------- If Statment ------------------------------
+
+<if_stmt> ::= if '('<cond>')' ':' '{'<stmt_list>'}'
+           | if '('<cond>')' ':' '{'<stmt_list>'}' else '{'<stmt_list>'}'
+
+<cond> ::= <expres> <op> <expres>
+        
+<op> ::= '<'|'>'|'=='|'!='
+      
+!-------------- While Statment ------------------------------
+<while_stmt> ::= while'(' <cond> ')' ':' '{' <stmt_list> '}'
+
+<do_while> ::= do '{' <stmt_list> '}' while '(' <cond> ')' 
+
+!------------- Function Statment-------------------
+
+<function> ::= 'func' Id '(' <parameters> ')' ':' '{' <stmt_list> '}'
+
+<parameters> ::= <param> | <param> ',' <parameters>
+
+<param> ::= Id 
+          | <assign>
+
+<return_stmt> ::= return <expres>
+               
+<call_fun> ::= Id'.''(' <arguments> ')'
+
+<arguments> ::= <expres> | <expres> ',' <arguments>
+            
+!------------------------------------------------------------
+!------------------ Dictionary  -----------------------------
+!------------------------------------------------------------
+
+<dictionary> ::= Id '=' '{' <keys_values> '}'
+
+<keys_values> ::= <key_value>
+                     | <key_value> ',' <key_value>
+
+<key_value> ::= <key> ':' <value>
+
+<key> ::= Id
+
+<value> ::= <expres>
+         
+!------------------------------------------------------------
+!------------------ List  -----------------------------------
+!------------------------------------------------------------
+
+<list> ::= <data_type> Id '=' '[' <elements> ']'
+        | <data_type> Id '=' '[' ']'
+
+<elements> ::= <element>
+             | <element> ',' <elements>
+ 
+<element> ::= <expres>
+           
+!------------------------------------------------------------
+!------------------ Print  -----------------------------------
+!------------------------------------------------------------
+
+<print> ::= write '(' <print_arguments> ')'
+
+<print_arguments> ::= <expres>
+                    | <expres> ',' <print_arguments>
+                    
+!<read> ::= <data_type> Id '=' 'read '(' ')'
+!         | <data_type> Id '=' read '(' '"' {String Ch}* '"' ')'
+
+!------------------------------------------------------------
+!------------------ Error Handling  -------------------------
+!------------------------------------------------------------
+
+<try_catch> ::= try ':' '{' <stmt_list> '}' catch ':' '{' <stmt_list> '}'
+             | try ':' '{' <stmt_list> '}' catch ':' '{' <stmt_list> '}' end ':' '{' <stmt_list> '}'
+
+
+
+!------------------------------------------------------------
+!------------------ OOP  ------------------------------------
+!------------------------------------------------------------   
+ 
+!-----------> class & Inheritance
+    
+<class> ::= 'class' Id ':' '{' <class_body> '}'
+         | 'class' Id '(' <Inheritance> ')' ':' '{' <class_body> '}'
+         
+<Inheritance> ::= 'inherits' Id
+
+<class_body> ::= <class_members>
+
+<class_members> ::= <class_member>
+                  | <class_member> <class_members>
+
+<class_member> ::= <assign>
+                 | <function>
+                 
+<class_object> ::= Id '=' Id '(' <arguments> ')'
+                
+<access_classFunction> ::= Id'.'Id'(' <arguments> ')'
+
+ 
+

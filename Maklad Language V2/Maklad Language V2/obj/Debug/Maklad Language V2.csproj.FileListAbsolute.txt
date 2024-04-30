@@ -1,0 +1,13 @@
+D:\University\Third Year\Second Term\Programming language design\Project V2\Maklad Language V2\Maklad Language V2\bin\Debug\Maklad Language V2.exe.config
+D:\University\Third Year\Second Term\Programming language design\Project V2\Maklad Language V2\Maklad Language V2\bin\Debug\Maklad Language V2.exe
+D:\University\Third Year\Second Term\Programming language design\Project V2\Maklad Language V2\Maklad Language V2\bin\Debug\Maklad Language V2.pdb
+D:\University\Third Year\Second Term\Programming language design\Project V2\Maklad Language V2\Maklad Language V2\bin\Debug\CalithaLib.dll
+D:\University\Third Year\Second Term\Programming language design\Project V2\Maklad Language V2\Maklad Language V2\bin\Debug\GoldParserEngine.dll
+D:\University\Third Year\Second Term\Programming language design\Project V2\Maklad Language V2\Maklad Language V2\obj\Debug\Maklad Language V2.csproj.AssemblyReference.cache
+D:\University\Third Year\Second Term\Programming language design\Project V2\Maklad Language V2\Maklad Language V2\obj\Debug\Maklad_Language_V2.Form1.resources
+D:\University\Third Year\Second Term\Programming language design\Project V2\Maklad Language V2\Maklad Language V2\obj\Debug\Maklad_Language_V2.Properties.Resources.resources
+D:\University\Third Year\Second Term\Programming language design\Project V2\Maklad Language V2\Maklad Language V2\obj\Debug\Maklad Language V2.csproj.GenerateResource.cache
+D:\University\Third Year\Second Term\Programming language design\Project V2\Maklad Language V2\Maklad Language V2\obj\Debug\Maklad Language V2.csproj.CoreCompileInputs.cache
+D:\University\Third Year\Second Term\Programming language design\Project V2\Maklad Language V2\Maklad Language V2\obj\Debug\Maklad L.F7D03973.Up2Date
+D:\University\Third Year\Second Term\Programming language design\Project V2\Maklad Language V2\Maklad Language V2\obj\Debug\Maklad Language V2.exe
+D:\University\Third Year\Second Term\Programming language design\Project V2\Maklad Language V2\Maklad Language V2\obj\Debug\Maklad Language V2.pdb
